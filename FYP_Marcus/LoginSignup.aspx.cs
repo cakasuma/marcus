@@ -50,7 +50,7 @@ namespace FYP_Marcus
                     }
                     if (Usertype.Equals("Admin"))
                     {
-                        Response.Redirect("Admin.aspx");
+                        Response.Redirect("AdminHome.aspx");
 
                     }
                 }

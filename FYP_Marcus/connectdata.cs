@@ -13,7 +13,7 @@ namespace FYP_Marcus
         {
             SqlConnection conn = null;
 
-            conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\amam\documents\visual studio 2017\Projects\FYP_Marcus\FYP_Marcus\App_Data\Marcus.mdf;Integrated Security=True");
+            conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\asp project\FYP_Marcus\FYP_Marcus\App_Data\Marcus.mdf;Integrated Security=True");
             return conn;
         }
 

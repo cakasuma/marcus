@@ -65,17 +65,27 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AboutUs.aspx" />
+    <Content Include="AdminAddCourse.aspx" />
+    <Content Include="AdminEditCourse.aspx" />
+    <Content Include="AdminHome.aspx" />
+    <Content Include="AdminViewCourse.aspx" />
+    <Content Include="AdminViewReport.aspx" />
+    <Content Include="AdminViewUser.aspx" />
     <Content Include="App_Data\Marcus.mdf" />
     <Content Include="App_Data\Marcus_log.ldf">
       <DependentUpon>Marcus.mdf</DependentUpon>
     </Content>
+    <Content Include="css\admin.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\color-switch.css" />
     <Content Include="css\components.min.css" />
+    <Content Include="css\datatable.css" />
     <Content Include="css\font-awesome.min.css" />
     <Content Include="css\owl.video.play.html" />
     <Content Include="css\style.min.css" />
     <Content Include="css\vendors.min.css" />
+    <Content Include="Feedback.aspx" />
     <Content Include="flags\1x1\ad.svg" />
     <Content Include="flags\1x1\ae.svg" />
     <Content Include="flags\1x1\af.svg" />
@@ -760,6 +770,7 @@
     <Content Include="Index.aspx" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\color-switch.js" />
+    <Content Include="js\datatable.js" />
     <Content Include="js\jquery.appear.js" />
     <Content Include="js\jquery.countdown.min.js" />
     <Content Include="js\jquery.countTo.js" />
@@ -774,6 +785,10 @@
     <Content Include="LoginSignup.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="packages.config" />
+    <Content Include="UserProfile.aspx" />
+    <Content Include="VideoCatalogue.aspx" />
+    <Content Include="VideoDetails.aspx" />
+    <Content Include="WishlistCatalogue.aspx" />
     <Content Include="_https_\img.youtube.com\vi\bS1fM5G-xEs\sddefault.html" />
     <Content Include="fonts\fontawesome-webfont3e6e.eot" />
     <Content Include="fonts\fontawesome-webfont3e6e.ttf" />
@@ -784,6 +799,7 @@
     <Content Include="slider-revolution\fonts\revicons\revicons90c6.ttf" />
     <Content Include="slider-revolution\fonts\revicons\revicons90c6.woff" />
     <Content Include="Index.Master" />
+    <Content Include="Admin.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -814,7 +830,70 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutUs.aspx.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AboutUs.aspx.designer.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="AdminAddCourse.aspx.cs">
+      <DependentUpon>AdminAddCourse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminAddCourse.aspx.designer.cs">
+      <DependentUpon>AdminAddCourse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminEditCourse.aspx.cs">
+      <DependentUpon>AdminEditCourse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminEditCourse.aspx.designer.cs">
+      <DependentUpon>AdminEditCourse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminHome.aspx.cs">
+      <DependentUpon>AdminHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminHome.aspx.designer.cs">
+      <DependentUpon>AdminHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminViewCourse.aspx.cs">
+      <DependentUpon>AdminViewCourse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminViewCourse.aspx.designer.cs">
+      <DependentUpon>AdminViewCourse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminViewReport.aspx.cs">
+      <DependentUpon>AdminViewReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminViewReport.aspx.designer.cs">
+      <DependentUpon>AdminViewReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminViewUser.aspx.cs">
+      <DependentUpon>AdminViewUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminViewUser.aspx.designer.cs">
+      <DependentUpon>AdminViewUser.aspx</DependentUpon>
+    </Compile>
     <Compile Include="connectdata.cs" />
+    <Compile Include="Feedback.aspx.cs">
+      <DependentUpon>Feedback.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Feedback.aspx.designer.cs">
+      <DependentUpon>Feedback.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -844,6 +923,37 @@
       <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserProfile.aspx.cs">
+      <DependentUpon>UserProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserProfile.aspx.designer.cs">
+      <DependentUpon>UserProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VideoCatalogue.aspx.cs">
+      <DependentUpon>VideoCatalogue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VideoCatalogue.aspx.designer.cs">
+      <DependentUpon>VideoCatalogue.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VideoDetails.aspx.cs">
+      <DependentUpon>VideoDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VideoDetails.aspx.designer.cs">
+      <DependentUpon>VideoDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WishlistCatalogue.aspx.cs">
+      <DependentUpon>WishlistCatalogue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WishlistCatalogue.aspx.designer.cs">
+      <DependentUpon>WishlistCatalogue.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Videos\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
