@@ -29,7 +29,7 @@ namespace FYP_Marcus
                 var uploadpath2 = string.Format("{0}\\{1}", pathString, filename2);
                 fileUpload1.PostedFile.SaveAs(uploadpath);
                 fileUpload2.PostedFile.SaveAs(uploadpath2);
-                string query = "INSERT INTO Videos (videoLocation, videoName, videoCategory, videoRewards, videoDescription, videoImage) VALUES ('" + uploadpath + "','" + name + "','" + category + "', " + amount + ", '" + desc + "', '"+uploadpath2+"')";
+                string query = "INSERT INTO Videos (videoLocation, videoName, videoCategory, videoRewards, videoDescription, videoImage) VALUES ('" + filename2 + "','" + name + "','" + category + "', " + amount + ", '" + desc + "', '"+filename+"')";
                 connectdata.executeQuery(query);
                 Response.Redirect("AdminAddCourse.aspx");
             }
