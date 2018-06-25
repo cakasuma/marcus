@@ -10,6 +10,6 @@
 namespace FYP_Marcus {
     
     
-    public partial class AdminEditCourse {
+    public partial class CoursesCatalogue {
     }
 }

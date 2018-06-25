@@ -76,6 +76,7 @@
     <Content Include="App_Data\Marcus_log.ldf">
       <DependentUpon>Marcus.mdf</DependentUpon>
     </Content>
+    <Content Include="CoursesCatalogue.aspx" />
     <Content Include="css\admin.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\color-switch.css" />
@@ -887,6 +888,13 @@
       <DependentUpon>AdminViewUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="connectdata.cs" />
+    <Compile Include="CoursesCatalogue.aspx.cs">
+      <DependentUpon>CoursesCatalogue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CoursesCatalogue.aspx.designer.cs">
+      <DependentUpon>CoursesCatalogue.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Feedback.aspx.cs">
       <DependentUpon>Feedback.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

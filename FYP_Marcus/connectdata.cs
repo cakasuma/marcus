@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Web;
 
 namespace FYP_Marcus
@@ -93,8 +94,8 @@ namespace FYP_Marcus
 
         public bool Login(String email, string password)
         {
-
-            String query = "SELECT Email, Usertype FROM Users where Email = '" + email + "' and Password = '" + password + "';";
+            string hashpass = HashPass(password);
+            String query = "SELECT Email, Usertype FROM Users where Email = '" + email + "' and Password = '" + hashpass + "';";
             SqlConnection conn = getConnection();
             conn.Open();
             SqlCommand cm = new SqlCommand(query, conn);
@@ -113,6 +114,105 @@ namespace FYP_Marcus
             }
             closeConnection(conn);
             return flag;
+        }
+        public static string HashPass(string password)
+        {
+            if (String.IsNullOrEmpty(password))
+                return String.Empty;
+
+            using (var sha = new SHA256Managed())
+            {
+                byte[] textData = System.Text.Encoding.UTF8.GetBytes(password);
+                byte[] hash = sha.ComputeHash(textData);
+                return BitConverter.ToString(hash).Replace("-", String.Empty);
+            }
+        }
+
+        public static string getWebSecurity()
+        {
+            string result = "";
+            String query = "SELECT count(Id) as web FROM Videos where videoCategory = 'Web Security' group by Id";
+            SqlConnection conn = getConnection();
+            conn.Open();
+            SqlCommand cm = new SqlCommand(query, conn);
+            SqlDataReader sdr = cm.ExecuteReader();
+            while (sdr.Read())
+            {
+                result = sdr["web"].ToString();
+            }
+            return result;
+        }
+
+        public static string getDatabaseSecurity()
+        {
+            string result = "";
+            String query = "SELECT count(Id) as web FROM Videos where videoCategory = 'Database Security' group by Id";
+            SqlConnection conn = getConnection();
+            conn.Open();
+            SqlCommand cm = new SqlCommand(query, conn);
+            SqlDataReader sdr = cm.ExecuteReader();
+            while (sdr.Read())
+            {
+                result = sdr["web"].ToString();
+            }
+            return result;
+        }
+        public static string getnetworkSecurity()
+        {
+            string result = "";
+            String query = "SELECT count(Id) as web FROM Videos where videoCategory = 'Network Security' group by Id";
+            SqlConnection conn = getConnection();
+            conn.Open();
+            SqlCommand cm = new SqlCommand(query, conn);
+            SqlDataReader sdr = cm.ExecuteReader();
+            while (sdr.Read())
+            {
+                result = sdr["web"].ToString();
+            }
+            return result;
+        }
+        public static string getMobileSecurity()
+        {
+            string result = "";
+            String query = "SELECT count(Id) as web FROM Videos where videoCategory = 'Mobile Security' group by Id";
+            SqlConnection conn = getConnection();
+            conn.Open();
+            SqlCommand cm = new SqlCommand(query, conn);
+            SqlDataReader sdr = cm.ExecuteReader();
+            while (sdr.Read())
+            {
+                result = sdr["web"].ToString();
+            }
+            return result;
+        }
+        public static string getCryptography()
+        {
+            string result = "";
+            String query = "SELECT count(Id) as web FROM Videos where videoCategory = 'Cryptography' group by Id";
+            SqlConnection conn = getConnection();
+            conn.Open();
+            SqlCommand cm = new SqlCommand(query, conn);
+            SqlDataReader sdr = cm.ExecuteReader();
+            while (sdr.Read())
+            {
+                result = sdr["web"].ToString();
+            }
+            return result;
+        }
+
+        public static string getAllVideos()
+        {
+            string result = "";
+            String query = "SELECT count(Id) as web FROM Videos group by Id";
+            SqlConnection conn = getConnection();
+            conn.Open();
+            SqlCommand cm = new SqlCommand(query, conn);
+            SqlDataReader sdr = cm.ExecuteReader();
+            while (sdr.Read())
+            {
+                result = sdr["web"].ToString();
+            }
+            return result;
         }
     }
 }

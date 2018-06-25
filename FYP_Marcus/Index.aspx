@@ -36,11 +36,11 @@
                                 <span class="head">
                                     <span class="count" data-from="0" data-to="5" data-speed="3000"></span>Courses
                                 </span>
-                                <span class="foot">Up to 5 materials in each courses!. Offering world class education</span>
+                                <span class="foot">Up to 5 courses!. Offering world class education</span>
                             </div>
                             <div class="fact col-lg-4">
                                 <span class="head">
-                                    <span class="count" data-from="0" data-to="25" data-speed="3000"></span>Videos
+                                    <span class="count" data-from="0" data-to="<%=FYP_Marcus.connectdata.getAllVideos() %>" data-speed="3000"></span>Videos
                                 </span>
                                 <span class="foot">Average videos in courses. Make sure you keep up to date to the latest security</span>
                             </div>

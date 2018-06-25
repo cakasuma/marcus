@@ -38,7 +38,13 @@
                             <td><%=sdr["videoRewards"].ToString() %></td>
                             <td><%=sdr["videoDescription"] %></td>
                             <td>
-                                <video tabindex="0" src="Videos/<%=sdr["videoLocation"] %>" controls="controls" poster="Videos/<%=sdr["videoImage"] %>" style="max-height: 100px; max-width: 100px; height: 100px; width: 100px; margin-top: -20px"></video>
+                                <div class="youtube" style="max-height: 100px; max-width: 200px; height: 100px; width: 200px"; data-video-id="<%=sdr["youtubeId"] %>">
+                                    <!-- Replace video id with your video id -->
+                                    <div class="btn-play">
+                                        <i class="fa fa-youtube-play"></i>
+                                    </div>
+                                </div>
+                                <%--<video tabindex="0" src="Videos/<%=sdr["videoLocation"] %>" controls="controls" poster="Videos/<%=sdr["videoImage"] %>" style="max-height: 100px; max-width: 100px; height: 100px; width: 100px; margin-top: -20px"></video>--%>
                             </td>
                             <td class="row"><a href="AdminViewUser.aspx?delete=<%=sdr["Id"] %>" class="btn btn-danger">Delete</a>&nbsp<a href="AdminEditCourse.aspx?edit=<%=sdr["Id"] %>" class="btn btn-info">Edit</a></td>
                         </tr>

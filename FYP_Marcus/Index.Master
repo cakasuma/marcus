@@ -43,7 +43,7 @@
 
     <header class="header-2">
         <!-- Header = Topbar + Navigation Bar -->
-        <nav class="navbar navbar-expand-lg fixed-top bg-primary">
+        <nav class="navbar navbar-expand-lg fixed-top bg-primary" style="position:relative;z-index:1000">
             <!-- Navigation Bar -->
             <div class="container">
                 <div class="navbar-brand">

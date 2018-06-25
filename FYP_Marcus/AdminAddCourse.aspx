@@ -30,11 +30,15 @@
                         <label for="desc">Video Description</label>
                         <textarea id="desc" name="desc" class="form-control" required></textarea>
                         <br />
-                        <label for="fileUpload1">Video Image (support: jpg/png/jpeg</label>
+                        <label for="youtubeid">YoutubeId</label>
+                        <input type="text" class="form-control" id="youtubeid" name="youtubeid" required>
+                        <br />
+
+<%--                        <label for="fileUpload1">Video Image (support: jpg/png/jpeg</label>
                         <input type="file" id="fileUpload1" class="form-control" required="" runat="server" />
                         <br />
                         <label for="fileUpload1">Video Upload (support: mp4/ogg/WebM</label>
-                        <input type="file" id="fileUpload2" class="form-control" required="" runat="server" />
+                        <input type="file" id="fileUpload2" class="form-control" required="" runat="server" />--%>
                         <br />
                         <br />
                         <button type="submit" class="btn btn-primary">Submit</button>

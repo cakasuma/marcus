@@ -21,7 +21,8 @@ namespace FYP_Marcus
                 bool isEmailExist = new connectdata().isEmailExists(email);
                 if (!isEmailExist)
                 {
-                    String query = "INSERT INTO Users (Name, Email, Password, Contact, Usertype) VALUES ('" + name + "','" + email + "','" + password + "','" + contact + "','Student')";
+                    string hashpass = connectdata.HashPass(password);
+                    String query = "INSERT INTO Users (Name, Email, Password, Contact, Usertype) VALUES ('" + name + "','" + email + "','" + hashpass + "','" + contact + "','Student')";
                     connectdata.executeQuery(query);
                     Response.Redirect("LoginSignup.aspx?signupsucces=true");
                 }
