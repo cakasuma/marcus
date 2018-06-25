@@ -790,7 +790,6 @@
     <Content Include="VideoCatalogue.aspx" />
     <Content Include="VideoDetails.aspx" />
     <Content Include="WishlistCatalogue.aspx" />
-    <Content Include="_https_\img.youtube.com\vi\bS1fM5G-xEs\sddefault.html" />
     <Content Include="fonts\fontawesome-webfont3e6e.eot" />
     <Content Include="fonts\fontawesome-webfont3e6e.ttf" />
     <Content Include="fonts\fontawesome-webfont3e6e.woff" />
