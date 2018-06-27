@@ -40,7 +40,7 @@
                             </div>
                             <div class="fact col-lg-4">
                                 <span class="head">
-                                    <span class="count" data-from="0" data-to="<%=FYP_Marcus.connectdata.getAllVideos() %>" data-speed="3000"></span>Videos
+                                    <span class="count" data-from="0" data-to="<%=FYP_Marcus.connectdata.getAllVideos() %>" data-speed="2000"></span>Videos
                                 </span>
                                 <span class="foot">Average videos in courses. Make sure you keep up to date to the latest security</span>
                             </div>
@@ -95,6 +95,11 @@
                 <div class="col-lg-12">
                     <h2 class="heading text-center">Popular <span class="text-primary">Courses</span></h2>
                 </div>
+                <%
+                    while (sdr.Read())
+                    {
+
+                    %>
                 <div class="col-lg-4">
                     <div class="card course-card new">
                         <div class="course-head">
@@ -102,47 +107,17 @@
                             <a href="course-detail.html" class="course-link"><i class="fa fa-link" aria-hidden="true"></i></a>
                         </div>
                         <div class="course-detail">
-                            <h4 class="heading">Sample Material</h4>
-                            <span class="brief">In this course, you learn all advanced techniques and methodologies.</span>
+                            <h4 class="heading"><%=sdr["videoName"] %></h4>
+                            <span class="brief"><%=sdr["videoDescription"] %></span>
                             <ul class="course-features">
-                                <li><i class="fa fa-map-marker"></i> Place</li>
-                                <li><i class="fa fa-clock-o"></i> x year</li>
+                                <li><i class="fa fa-map-marker"></i> <%=sdr["videoRewards"] %></li>
+                                <li><i class="fa fa-clock-o"></i> <%=sdr["videoCategory"] %></li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="card course-card new">
-                        <div class="course-head">
-                            <img src="images/course-grid-1.jpg" class="img-fluid course-img" alt="">
-                            <a href="course-detail.html" class="course-link"><i class="fa fa-link" aria-hidden="true"></i></a>
-                        </div>
-                        <div class="course-detail">
-                            <h4 class="heading">Sample Material</h4>
-                            <span class="brief">In this course, you learn all advanced techniques and methodologies.</span>
-                            <ul class="course-features">
-                                <li><i class="fa fa-map-marker"></i> Place</li>
-                                <li><i class="fa fa-clock-o"></i> x year</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="card course-card new">
-                        <div class="course-head">
-                            <img src="images/course-grid-1.jpg" class="img-fluid course-img" alt="">
-                            <a href="course-detail.html" class="course-link"><i class="fa fa-link" aria-hidden="true"></i></a>
-                        </div>
-                        <div class="course-detail">
-                            <h4 class="heading">Sample Material</h4>
-                            <span class="brief">In this course, you learn all advanced techniques and methodologies.</span>
-                            <ul class="course-features">
-                                <li><i class="fa fa-map-marker"></i> Place</li>
-                                <li><i class="fa fa-clock-o"></i> x year</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <%} %>
+                
 
             </div>
         </div>

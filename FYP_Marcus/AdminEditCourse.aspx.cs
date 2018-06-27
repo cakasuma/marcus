@@ -13,6 +13,7 @@ namespace FYP_Marcus
     {
         public SqlDataReader sdr;
         public string videoName = string.Empty;
+        public string videoid = string.Empty;
         //public string videoLocation = string.Empty;
         public string videoCategory = string.Empty;
         public string videoRewards = string.Empty;
@@ -23,8 +24,8 @@ namespace FYP_Marcus
         {
             if (Request.QueryString["edit"] != null)
             {
-                string vid = Request.QueryString["edit"];
-                String query = "SELECT * FROM Videos where Id="+vid+"";
+                videoid = Request.QueryString["edit"];
+                String query = "SELECT * FROM Videos where Id="+ videoid + "";
                 SqlConnection conn = connectdata.getConnection();
                 conn.Open();
                 SqlCommand cm = new SqlCommand(query, conn);
@@ -33,6 +34,7 @@ namespace FYP_Marcus
                 {
                     while (sdr.Read())
                     {
+                        videoid= sdr["Id"].ToString();
                         videoName = sdr["videoName"].ToString();
                         //videoLocation = sdr["videoLocation"].ToString();
                         videoCategory = sdr["videoCategory"].ToString();
@@ -45,13 +47,21 @@ namespace FYP_Marcus
             }
             if (Request.QueryString["editcourse"] != null)
             {
-                string query = string.Empty;
+
+                string id = Request.QueryString["id"];
                 videoName = Request.Form["name"].ToString();
                 //videoLocation = Path.GetFileName(fileUpload2.PostedFile.FileName);
                 videoCategory = Request.Form["cat"].ToString();
                 videoRewards = Request.Form["amount"].ToString();
                 videoDescription = Request.Form["desc"].ToString();
                 youtubeid = Request.Form["youtubeid"].ToString();
+                System.Diagnostics.Debug.WriteLine("Test1");
+                string query = "update videos set videoName='"+videoName+"',videoCategory='"+videoCategory+"', videoRewards="+videoRewards+", videoDescription='"+videoDescription+"', youtubeId='"+youtubeid+"' where Id="+id+"";
+                System.Diagnostics.Debug.WriteLine("TEST2");
+                connectdata.executeQuery(query);
+                System.Diagnostics.Debug.WriteLine("TEST3");
+                Response.Redirect("AdminViewCourse.aspx");
+                
                 //videoImage = Path.GetFileName(fileUpload1.PostedFile.FileName);
                 //if (videoLocation == "" && videoImage == "")
                 //{

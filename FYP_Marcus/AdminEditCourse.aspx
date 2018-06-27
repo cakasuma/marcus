@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-lg-6">
                 <h2 class="heading">Edit <span class="text-primary">Course Videos</span></h2>
-                <form method="post" action="AdminEditCourse.aspx?editcourse=true" runat="server">
+                <form method="post" action="AdminEditCourse.aspx?editcourse=true&id=<%=videoid %>">
 
                     <div class="form-group">
                         <label for="name">Video Name</label>
@@ -32,7 +32,8 @@
                         <textarea id="desc" name="desc" class="form-control" required><%=videoDescription %></textarea>
                         <br />
                         <label for="youtubeid">YoutubeId</label>
-                        <textarea id="youtubeid" name="desc" class="form-control" required></textarea>
+                        <input type="text" class="form-control" value="<%=youtubeid %>" id="youtubeid" name="youtubeid" required>
+                        
                         <br />
 <%--                        <label for="fileUpload1">Video Image (support: jpg/png/jpeg</label>
                         <input type="file" id="fileUpload1" class="form-control" required="" runat="server" />

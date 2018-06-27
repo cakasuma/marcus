@@ -131,7 +131,7 @@ namespace FYP_Marcus
         public static string getWebSecurity()
         {
             string result = "";
-            String query = "SELECT count(Id) as web FROM Videos where videoCategory = 'Web Security' group by Id";
+            String query = "SELECT count(Id) as web FROM Videos where videoCategory = 'Web Security'";
             SqlConnection conn = getConnection();
             conn.Open();
             SqlCommand cm = new SqlCommand(query, conn);
@@ -146,7 +146,7 @@ namespace FYP_Marcus
         public static string getDatabaseSecurity()
         {
             string result = "";
-            String query = "SELECT count(Id) as web FROM Videos where videoCategory = 'Database Security' group by Id";
+            String query = "SELECT count(Id) as web FROM Videos where videoCategory = 'Database Security'";
             SqlConnection conn = getConnection();
             conn.Open();
             SqlCommand cm = new SqlCommand(query, conn);
@@ -160,7 +160,7 @@ namespace FYP_Marcus
         public static string getnetworkSecurity()
         {
             string result = "";
-            String query = "SELECT count(Id) as web FROM Videos where videoCategory = 'Network Security' group by Id";
+            String query = "SELECT count(Id) as web FROM Videos where videoCategory = 'Network Security'";
             SqlConnection conn = getConnection();
             conn.Open();
             SqlCommand cm = new SqlCommand(query, conn);
@@ -174,7 +174,7 @@ namespace FYP_Marcus
         public static string getMobileSecurity()
         {
             string result = "";
-            String query = "SELECT count(Id) as web FROM Videos where videoCategory = 'Mobile Security' group by Id";
+            String query = "SELECT count(Id) as web FROM Videos where videoCategory = 'Mobile Security'";
             SqlConnection conn = getConnection();
             conn.Open();
             SqlCommand cm = new SqlCommand(query, conn);
@@ -188,7 +188,7 @@ namespace FYP_Marcus
         public static string getCryptography()
         {
             string result = "";
-            String query = "SELECT count(Id) as web FROM Videos where videoCategory = 'Cryptography' group by Id";
+            String query = "SELECT count(Id) as web FROM Videos where videoCategory = 'Cryptography'";
             SqlConnection conn = getConnection();
             conn.Open();
             SqlCommand cm = new SqlCommand(query, conn);
@@ -203,7 +203,7 @@ namespace FYP_Marcus
         public static string getAllVideos()
         {
             string result = "";
-            String query = "SELECT count(Id) as web FROM Videos group by Id";
+            String query = "SELECT count(Id) as web FROM Videos";
             SqlConnection conn = getConnection();
             conn.Open();
             SqlCommand cm = new SqlCommand(query, conn);
