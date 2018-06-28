@@ -25,7 +25,7 @@
                 <div class="card course-card new">
                     <div class="course-head">
                         <img src="images/course-grid-1.jpg" class="img-fluid course-img" alt="">
-                        <a href="course-detail.html" class="course-link"><i class="fa fa-link" aria-hidden="true"></i></a>
+                        <a href="VideoDetails.aspx?videoid=<%=sdr["Id"] %>&points=<%=sdr["videoRewards"] %>" class="course-link"><i class="fa fa-link" aria-hidden="true"></i></a>
                     </div>
                     <div class="course-detail">
                         <h4 class="heading"><%=sdr["videoName"] %></h4>

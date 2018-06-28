@@ -16,7 +16,7 @@
                 </p>
             </div>
             <div class="col-lg-5">
-                <div class="youtube" style="height: 310px" data-video-id="hiC-Kttrasc">
+                <div class="youtube" style="height:310px" data-video-id="hiC-Kttrasc">
                     <!-- Replace video id with your video id -->
                     <div class="btn-play">
                         <i class="fa fa-youtube-play"></i>
