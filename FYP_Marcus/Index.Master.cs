@@ -11,12 +11,15 @@ namespace FYP_Marcus
     {
         public string name = "";
         public string email = "";
+        public string points = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Email"] != null)
             {
                 email = Session["Email"].ToString();
                 name = connectdata.getUserName(email);
+                string id = new connectdata().getUserId(email);
+                points = connectdata.getUserPoints(id);
             }
         }
     }

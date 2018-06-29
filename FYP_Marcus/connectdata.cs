@@ -62,7 +62,7 @@ namespace FYP_Marcus
 
         public string getUserId(String email)
         {
-            string id = string.Empty;
+            string id = "";
             String query = "SELECT Id FROM Users where Email='" + email + "'";
             SqlConnection conn = getConnection();
             conn.Open();
@@ -71,7 +71,11 @@ namespace FYP_Marcus
 
             if (sdr.HasRows)
             {
-                id = sdr["Id"].ToString();
+                while (sdr.Read())
+                {
+                    id = sdr["Id"].ToString();
+                }
+                
             }
             closeConnection(conn);
             return id;
@@ -94,7 +98,22 @@ namespace FYP_Marcus
 
         public bool isVideoRewardsExist(String videoid, String userid)
         {
-            String query = "SELECT Id FROM Rewards where videoId='" + videoid + "' AND userId='"+ userid + "'";
+            String query = "SELECT Id FROM Rewards where videoId=" + videoid + " AND userId="+ userid + "";
+            SqlConnection conn = getConnection();
+            conn.Open();
+            SqlCommand cm = new SqlCommand(query, conn);
+            SqlDataReader sdr = cm.ExecuteReader();
+            bool flag = false;
+            if (sdr.HasRows)
+            {
+                flag = true;
+            }
+            closeConnection(conn);
+            return flag;
+        }
+        public static bool isWishlistExist(String videoid, String userid)
+        {
+            String query = "SELECT Id FROM Wishlist where videoId=" + videoid + " AND userId=" + userid + "";
             SqlConnection conn = getConnection();
             conn.Open();
             SqlCommand cm = new SqlCommand(query, conn);
@@ -227,6 +246,21 @@ namespace FYP_Marcus
             while (sdr.Read())
             {
                 result = sdr["web"].ToString();
+            }
+            return result;
+        }
+
+        public static string getUserPoints(string userid)
+        {
+            string result = "";
+            String query = "SELECT sum(amount) as point FROM Rewards WHERE userid="+userid+"";
+            SqlConnection conn = getConnection();
+            conn.Open();
+            SqlCommand cm = new SqlCommand(query, conn);
+            SqlDataReader sdr = cm.ExecuteReader();
+            while (sdr.Read())
+            {
+                result = sdr["point"].ToString();
             }
             return result;
         }

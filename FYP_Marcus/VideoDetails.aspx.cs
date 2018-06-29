@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
@@ -12,34 +13,49 @@ namespace FYP_Marcus
     {
         public string point;
         public string id;
+        public string userid;
+        public SqlDataReader sdr;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.QueryString["videoid"] != null)
+            if (Session["Email"] != null)
             {
-                id = Request.QueryString["videoid"];
-                string email = Session["Email"].ToString();
-                string userid = new connectdata().getUserId(email);
-                point = Request.QueryString["points"];
-                if (Request.QueryString["insertPoints"] != null)
+                if (Request.QueryString["videoid"] != null)
                 {
-                    point = Request.QueryString["insertPoints"];
-                    bool checkRewards = new connectdata().isVideoRewardsExist(id, userid);
-                    if (checkRewards)
-                    {
-                        System.Diagnostics.Trace.WriteLine("cannot add points");
+                    id = Request.QueryString["videoid"];
+                    string email = Session["Email"].ToString();
+                    userid = new connectdata().getUserId(email);
+                    point = Request.QueryString["points"];
 
-                    }
-                    else
+
+                    String query = "SELECT * FROM Videos WHERE Id=" + id + "";
+                    SqlConnection conn = connectdata.getConnection();
+                    conn.Open();
+                    SqlCommand cm = new SqlCommand(query, conn);
+                    sdr = cm.ExecuteReader();
+
+
+                    if (Request.QueryString["insertPoints"] != null)
                     {
-                        System.Diagnostics.Trace.WriteLine("testingg     " + point + " ..................");
+                        point = Request.QueryString["insertPoints"];
+                        System.Diagnostics.Debug.WriteLine(point + "-----------------------------");
+                        string querys = "INSERT INTO Rewards (amount, userid, videoid) VALUES (" + point + "," + userid + "," + id + ")";
+                        connectdata.executeQuery(querys);
                     }
-                    
-                    
+                    if (Request.QueryString["addwishlist"] != null)
+                    {
+                        string queryz = "INSERT INTO Wishlist (userid, videoid) VALUES (" + userid + "," + id + ")";
+                        connectdata.executeQuery(queryz);
+                    }
+
                 }
             }
+            else
+            {
+                Response.Redirect("LoginSignup.aspx");
+            }
+
             
         }
-
 
     }
 }

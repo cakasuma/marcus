@@ -782,6 +782,7 @@
     <Content Include="js\main.js" />
     <Content Include="js\owl.carousel.min.js" />
     <Content Include="js\popper.min.js" />
+    <Content Include="js\SweetAlert.js" />
     <Content Include="js\xzoom.min.js" />
     <Content Include="LoginSignup.aspx" />
     <Content Include="Logout.aspx" />

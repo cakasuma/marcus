@@ -20,19 +20,28 @@
                 {
 
 
-                %>
+            %>
             <div class="col-lg-4">
                 <div class="card course-card new">
                     <div class="course-head">
                         <img src="images/course-grid-1.jpg" class="img-fluid course-img" alt="">
+                        <%
+                            bool isvideoexists = new FYP_Marcus.connectdata().isVideoRewardsExist(sdr["Id"].ToString(), userid);
+                            if (isvideoexists)
+                            {
+                        %>
+                        <a href="VideoDetails.aspx?videoid=<%=sdr["Id"] %>" class="course-link"><i class="fa fa-link" aria-hidden="true"></i></a>
+                        <%}
+                        else
+                        { %>
                         <a href="VideoDetails.aspx?videoid=<%=sdr["Id"] %>&points=<%=sdr["videoRewards"] %>" class="course-link"><i class="fa fa-link" aria-hidden="true"></i></a>
+                        <%} %>
                     </div>
                     <div class="course-detail">
                         <h4 class="heading"><%=sdr["videoName"] %></h4>
-                        <span class="brief"><%=sdr["videoDescription"] %></span>
+                        <span class="brief"><%=sdr["videoCategory"] %></span>
                         <ul class="course-features">
                             <li><i class="fa fa-map-marker"></i>Rewards: <%=sdr["videoRewards"] %></li>
-                            <li><i class="fa fa-clock-o"></i><%=sdr["videoCategory"] %></li>
                         </ul>
                     </div>
                 </div>
