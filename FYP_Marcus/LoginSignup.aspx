@@ -23,24 +23,42 @@
                         <div class="card-body">
                             <form id="signup-form" method="post" action="LoginSignup.aspx?signup=true">
                                 <div class="form-group">
-                                    <label>Full Name</label>
+                                    <label>Full Name *</label>
                                     <input id="full-name" type="text" class="form-control" name="create-fullname" required>
                                 </div>
                                 <div class="form-group">
-                                    <label>Email Id</label>
+                                    <label>Email *</label>
                                     <input id="email-id" type="email" class="form-control" name="create-email" required>
                                 </div>
                                 <div class="form-group">
-                                    <label>Password</label>
+                                    <label>Password *</label>
                                     <input id="create-pass" type="password" class="form-control" name="create-password" required>
                                 </div>
                                 <div class="form-group">
-                                    <label>Confirm Password</label>
+                                    <label>Confirm Password *</label>
                                     <input id="com-pass" type="password" class="form-control" required>
                                 </div>
                                 <div class="form-group">
-                                    <label>Contact</label>
+                                    <label>Contact *</label>
                                     <input id="login-con" type="number" class="form-control" name="create-contact" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Birthday</label>
+                                    <input  type="date" class="form-control" name="create-birthday">
+                                </div>
+                                <div class="form-group">
+                                    <label>Interest</label>
+                                    <select name="create-interest" class="form-control">
+                                        <option value="Internet">Internet</option>
+                                        <option value="Mobile">Mobile</option>
+                                        <option value="Security">Security</option>
+                                        <option value="Cryptography">Cryptography</option>
+                                    </select>
+                                   
+                                </div>
+                                <div class="form-group">
+                                    <label>About You *</label>
+                                    <textarea class="form-control" name="create-aboutyou" required></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label class="custom-control custom-checkbox">
@@ -50,6 +68,7 @@
                                     </label>
                                 </div>
                                 <button type="submit" name="submit" class="btn btn-primary">Create Account</button>
+                                
                             </form>
                         </div>
                     </div>

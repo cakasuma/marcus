@@ -685,6 +685,7 @@
     <Content Include="images\parent-1.jpg" />
     <Content Include="images\parent-2.jpg" />
     <Content Include="images\parent-3.jpg" />
+    <Content Include="images\person-icon-person-icon-17.jpg" />
     <Content Include="images\prettyPhoto\dark_rounded\btnNext.png" />
     <Content Include="images\prettyPhoto\dark_rounded\btnPrevious.png" />
     <Content Include="images\prettyPhoto\dark_rounded\contentPattern.png" />

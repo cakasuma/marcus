@@ -17,12 +17,15 @@ namespace FYP_Marcus
                 string email = Request.Form["create-email"];
                 string password = Request.Form["create-password"];
                 string contact = Request.Form["create-contact"];
-                
+                string aboutyou = Request.Form["create-aboutyou"];
+                string interest = Request.Form["create-interest"];
+                string birthday = Request.Form["create-birthday"];
+
                 bool isEmailExist = new connectdata().isEmailExists(email);
                 if (!isEmailExist)
                 {
                     string hashpass = connectdata.HashPass(password);
-                    String query = "INSERT INTO Users (Name, Email, Password, Contact, Usertype) VALUES ('" + name + "','" + email + "','" + hashpass + "','" + contact + "','Student')";
+                    String query = "INSERT INTO Users (Name, Email, Password, Contact, Usertype, about_me, interest, birthday) VALUES ('" + name + "','" + email + "','" + hashpass + "','" + contact + "','Student','" + aboutyou + "','" + interest + "','" + birthday + "')";
                     connectdata.executeQuery(query);
                     Response.Redirect("LoginSignup.aspx?signupsucces=true");
                 }
