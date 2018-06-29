@@ -96,6 +96,23 @@ namespace FYP_Marcus
             return flag;
         }
 
+        public static bool isPasswordMatch(string email, String password)
+        {
+            string passhash = HashPass(password);
+            String query = "SELECT Email FROM Users where Email='"+email+"' AND Password='" + password + "'";
+            SqlConnection conn = getConnection();
+            conn.Open();
+            SqlCommand cm = new SqlCommand(query, conn);
+            SqlDataReader sdr = cm.ExecuteReader();
+            bool flag = false;
+            if (sdr.HasRows)
+            {
+                flag = true;
+            }
+            closeConnection(conn);
+            return flag;
+        }
+
         public bool isVideoRewardsExist(String videoid, String userid)
         {
             String query = "SELECT Id FROM Rewards where videoId=" + videoid + " AND userId="+ userid + "";

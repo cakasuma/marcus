@@ -41,9 +41,19 @@ namespace FYP_Marcus
                 {
                     string oldpass = Request.Form["change-oldpass"];
                     string newpass = Request.Form["change-newpass"];
+                    bool checkpass = connectdata.isPasswordMatch(email, oldpass);
                     string queryedit = "";
-                    connectdata.executeQuery(queryedit);
-                    Response.Write("<script>alert('edit successful')</script>");
+                    if (checkpass)
+                    {
+                        connectdata.executeQuery(queryedit);
+                        Response.Write("<script>alert('edit successful')</script>");
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('that is not your old password')</script>");
+                    }
+                    
+                    
                 }
             }
             else

@@ -40,6 +40,8 @@ namespace FYP_Marcus
                         System.Diagnostics.Debug.WriteLine(point + "-----------------------------");
                         string querys = "INSERT INTO Rewards (amount, userid, videoid) VALUES (" + point + "," + userid + "," + id + ")";
                         connectdata.executeQuery(querys);
+                        string query2 = "INSERT INTO Reports (userid, videoid) VALUES (" + userid + "," + id + ")";
+                        connectdata.executeQuery(query2);
                     }
                     if (Request.QueryString["addwishlist"] != null)
                     {

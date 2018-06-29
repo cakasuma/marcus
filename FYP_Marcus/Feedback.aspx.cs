@@ -11,7 +11,15 @@ namespace FYP_Marcus
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Request.QueryString["feedback"] != null)
+            {
+                string subject = Request.Form["subject"];
+                string email = Request.Form["email"];
+                string message = Request.Form["message"];
+                string query = "INSERT INTO Feedback (subject, email,messages) VALUES ('" + subject + "', '" + email + "', '" + message + "')";
+                connectdata.executeQuery(query);
+                Response.Write("<script>alert('Submit Successful')</script>");
+            }
         }
     }
 }

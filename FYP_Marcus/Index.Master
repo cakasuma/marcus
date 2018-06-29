@@ -48,11 +48,21 @@
                 <!-- Dark Blue Topbar -->
                 <div class="topbar">
                     <div>
-                          Security Education FYP      <!-- Change Topbar Contact Number here -->
+                        Security Education FYP     
+                        <!-- Change Topbar Contact Number here -->
                     </div>
                     <div>
                         <ul class="topbar-widgets">
                             <!-- Topbar Widgets - Cart, Language Select & Login Signup -->
+                            
+                            <%if (email == "")
+                                { %>
+                            <li>
+                                <span data-toggle="modal" onclick="location.href = 'LoginSignup.aspx'">Login/Sign up</span>
+                            </li>
+                            <%}
+                                else
+                                { %>
                             <li>
                                 <span data-toggle="modal" onclick="location.href = 'WishlistCatalogue.aspx'">
                                     <i class="fa fa-heart"></i>
@@ -64,18 +74,9 @@
                                 </span>
                             </li>
                             <li>
-                                <%if (email == "")
-                                    { %>
-                                <span data-toggle="modal" onclick="location.href = 'LoginSignup.aspx'">Login/Sign up
-                                </span>
-                                <%}
-                                    else
-                                    { %>
-                                <span data-toggle="modal" onclick="location.href = 'Logout.aspx'">Logout
-                                </span>
-                                <%} %>
-                                
+                                <span data-toggle="modal" onclick="location.href = 'Logout.aspx'">Logout</span>
                             </li>
+                            <%} %>
                         </ul>
                     </div>
                 </div>
@@ -120,9 +121,9 @@
                                 </ul>
                             </div>
                         </li>
-                        <li class="nav-item"><a href="About" class="nav-link">About Us</a>
+                        <li class="nav-item"><a href="AboutUs.aspx" class="nav-link">About Us</a>
                         </li>
-                        <li class="nav-item"><a href="#" class="nav-link">Contact Us</a>
+                        <li class="nav-item"><a href="Feedback.aspx" class="nav-link">Contact Us</a>
                         </li>
                     </ul>
                 </div>

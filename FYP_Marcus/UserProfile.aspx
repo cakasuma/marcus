@@ -1,6 +1,21 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Index.Master" AutoEventWireup="true" CodeBehind="UserProfile.aspx.cs" Inherits="FYP_Marcus.UserProfile" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script type="text/javascript">
+        var password = document.getElementById("change-pass")
+            , confirm_password = document.getElementById("change-compass");
+
+        function validatePassword() {
+            if (password.value != confirm_password.value) {
+                confirm_password.setCustomValidity("Passwords Don't Match");
+            } else {
+                confirm_password.setCustomValidity('');
+            }
+        }
+
+        password.onchange = validatePassword;
+        confirm_password.onkeyup = validatePassword;
+    </script>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -100,10 +115,14 @@
                                     <div class="form-group">
                                         <label>interest</label>
                                         <select name="edit-interest" class="form-control">
-                                            <option value="Cryptography" <%if (sdr["interest"].Equals("Internet")){ %> selected <% }  %>>Internet</option>
-                                            <option value="Cryptography" <%if (sdr["interest"].Equals("Mobile")){ %> selected <% }  %>>Mobile</option>
-                                            <option value="Cryptography" <%if (sdr["interest"].Equals("Security")){ %> selected <% }  %>>Security</option>
-                                            <option value="Cryptography" <%if (sdr["interest"].Equals("Cryptography")){ %> selected <% }  %>>Cryptography</option>
+                                            <option value="Cryptography" <%if (sdr["interest"].Equals("Internet"))
+                                                { %> selected <% }  %>>Internet</option>
+                                            <option value="Cryptography" <%if (sdr["interest"].Equals("Mobile"))
+                                                { %> selected <% }  %>>Mobile</option>
+                                            <option value="Cryptography" <%if (sdr["interest"].Equals("Security"))
+                                                { %> selected <% }  %>>Security</option>
+                                            <option value="Cryptography" <%if (sdr["interest"].Equals("Cryptography"))
+                                                { %> selected <% }  %>>Cryptography</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -112,10 +131,10 @@
                                     </div>
                                     <div class="form-group">
                                         <label>About You</label>
-                                        <textarea class="form-control" name="edit-aboutyou" required>value="<%=sdr["about_me"] %>"</textarea>
+                                        <textarea class="form-control" name="edit-aboutyou" required><%=sdr["about_me"] %></textarea>
                                     </div>
                                     <button type="submit" name="submit" class="btn btn-primary">Edit</button>
-                                    <div style="height:50px"></div>
+                                    <div style="height: 50px"></div>
                                 </form>
                             </div>
                         </div>
@@ -143,12 +162,12 @@
                                         <label>Old Password</label>
                                         <input type="password" class="form-control" name="change-oldpass">
                                         <label>New Password</label>
-                                        <input type="password" class="form-control" name="change-newpass">
+                                        <input id="change-pass" type="password" class="form-control" name="change-newpass">
                                         <label>Confirm New Password</label>
-                                        <input type="password" class="form-control">
+                                        <input id="change-compass" type="password" class="form-control">
                                     </div>
                                     <button type="submit" name="submit" class="btn btn-primary">Change</button>
-                                    <div style="height:50px"></div>
+                                    <div style="height: 50px"></div>
                                 </form>
                             </div>
                         </div>
